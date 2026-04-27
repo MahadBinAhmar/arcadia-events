@@ -62,6 +62,6 @@ The application retrieves its dummy data from a free public API:
 
 **Developed By:**
 
-Maham Zahra  
+Muhammad Mahad Bin Ahmar 
 BS Software Engineering - SEF2  
-Roll No: L1F23BSSE0385
+Roll No: L1F23BSSE0374
