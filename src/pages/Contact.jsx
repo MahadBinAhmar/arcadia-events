@@ -1,57 +1,94 @@
 import React, { useState } from 'react';
-import Divider from '../components/Divider';
+import Hero from '../components/ui/Hero';
+
+import '../styles/Contact.css';
 
 const Contact = () => {
-    // SMART OBJECT Trick
+
     const [form, setForm] = useState({
         name: '', email: '', date: '', guests: '', message: ''
     });
 
+    const [emailError, setEmailError] = useState('');
+
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+
+        if (name === 'email') {
+            setEmailError(value && !value.includes('@') ? 'Please enter a valid email.' : '');
+        }
+
+        setForm({ ...form, [name]: value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert(`Thank you ${form.name}! We will review your enquiry for ${form.date}.`);
-        setForm({ name: '', email: '', date: '', guests: '', message: '' }); // Reset
+
+        if (emailError) {
+            return;
+        }
+
+        alert(`Grazie ${form.name}! We will be in touch soon.`);
+        setForm({ name: '', email: '', date: '', guests: '', message: '' });
     };
 
     return (
-        <div className="w">
-            <div className="ct-hero">
-                <div className="ct-hero-c">
-                    <div className="sey">Get in Touch</div>
-                    <h1>Begin Your<br /><em style={{ fontFamily: '"Playfair Display", serif', fontStyle: 'italic' }}>Italian Story</em></h1>
-                    <Divider style={{ marginTop: '14px' }} dark={true} />
-                </div>
-            </div>
+        <div className="full-width">
 
-            <div className="ct-body">
-                <div className="ct-info">
-                    <div className="sey">Reach Us</div>
-                    <h2>Let us plan your<br /><em style={{ fontFamily: '"Playfair Display", serif', fontStyle: 'italic' }}>perfect day</em></h2>
-                    <p>Every extraordinary wedding begins with a single conversation. Share your vision, your date, your dreams.</p>
-                    <Divider style={{ justifyContent: 'flex-start', margin: '20px 0' }} dark={true} />
-                    <div className="ct-detail"><div className="ct-detail-lbl">Email</div><div className="ct-detail-val">info@arcadiaevents.com</div></div>
-                    <div className="ct-detail"><div className="ct-detail-lbl">Phone</div><div className="ct-detail-val">+39 031 000 0000</div></div>
+            <Hero eyebrow="Get in Touch" title="Begin Your Italian Story" />
+
+            <div className="contact-grid">
+
+                <div className="contact-info-panel">
+                    <p className="contact-info-eyebrow">Reach Us</p>
+                    <h2 className="contact-info-title">Let us plan<br /><em>your perfect day</em></h2>
+                    <p className="contact-info-subtitle">Every extraordinary wedding begins with a single conversation.</p>
+
+                    <div className="contact-info-item">
+                        <div className="contact-info-label">Email</div>
+                        <div className="contact-info-value">info@arcadiaevents.com</div>
+                    </div>
+
+                    <div className="contact-info-item">
+                        <div className="contact-info-label">Studio</div>
+                        <div className="contact-info-value">Via Roma 14, Cernobbio, Italy</div>
+                    </div>
                 </div>
 
-                {/* REACT FORM */}
-                <form onSubmit={handleSubmit} className="ct-form">
-                    <div className="sey">Your Enquiry</div>
-                    <h2>Tell us about your wedding</h2>
-                    <div className="frow">
-                        <div className="ff"><label>Your Name</label><input required name="name" value={form.name} onChange={handleChange} placeholder="Sofia Russo" /></div>
-                        <div className="ff"><label>Your Email</label><input required type="email" name="email" value={form.email} onChange={handleChange} placeholder="sofia@email.com" /></div>
+                <form onSubmit={handleSubmit} className="contact-form-panel">
+                    <h2 className="contact-form-title">Tell us about your wedding</h2>
+
+                    <div className="contact-form-row">
+                        <div className="contact-field">
+                            <label className="contact-label">Name *</label>
+                            <input required type="text" name="name" value={form.name} onChange={handleChange} className="contact-input" />
+                        </div>
+                        <div className="contact-field">
+                            <label className="contact-label">Email *</label>
+                            <input required type="email" name="email" value={form.email} onChange={handleChange} className="contact-input" />
+                            {emailError && <span className="contact-error">{emailError}</span>}
+                        </div>
                     </div>
-                    <div className="frow">
-                        <div className="ff"><label>Wedding Date</label><input name="date" value={form.date} onChange={handleChange} placeholder="June 14, 2026" /></div>
-                        <div className="ff"><label>Guest Count</label><input name="guests" value={form.guests} onChange={handleChange} placeholder="80 guests" /></div>
+
+                    <div className="contact-form-row">
+                        <div className="contact-field">
+                            <label className="contact-label">Wedding Date</label>
+                            <input type="text" name="date" value={form.date} onChange={handleChange} className="contact-input" />
+                        </div>
+                        <div className="contact-field">
+                            <label className="contact-label">Number of Guests</label>
+                            <input type="text" name="guests" value={form.guests} onChange={handleChange} className="contact-input" />
+                        </div>
                     </div>
-                    <div className="ff"><label>Your Message</label><textarea required name="message" value={form.message} onChange={handleChange} placeholder="Tell us about your dream wedding..."></textarea></div>
-                    <button type="submit" className="fsub">Send Enquiry</button>
+
+                    <div className="contact-field">
+                        <label className="contact-label">Message *</label>
+                        <textarea required name="message" value={form.message} onChange={handleChange} className="contact-textarea" />
+                    </div>
+
+                    <button type="submit" className="btn">Send Enquiry</button>
                 </form>
+
             </div>
         </div>
     );

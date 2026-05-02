@@ -1,0 +1,26 @@
+.image-banner {
+    background: linear-gradient(145deg, #2C3828 0%, #1A2A20 50%, #3A2C18 100%);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.image-banner-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+    background: rgba(0, 0, 0, .3);
+    padding: 3px 10px;
+    border: 1px solid rgba(200, 168, 75, .3);
+    z-index: 10;
+}

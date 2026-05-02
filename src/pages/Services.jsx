@@ -1,60 +1,97 @@
 import React from 'react';
-import Divider from '../components/Divider';
+import Divider from '../components/ui/Divider';
+import ServiceCard from '../components/ui/ServiceCard';
+import PackageCard from '../components/ui/PackageCard';
+import Hero from '../components/ui/Hero';
+import ImageBanner from '../components/ui/ImageBanner';
+import '../styles/Services.css';
+
+import terraceImg from '../assets/villa-carlotta.webp';
+import img1 from '../assets/ceremony.webp';
+import img2 from '../assets/villa-balbianello.webp';
+import img3 from '../assets/dining.webp';
 
 const Services = () => {
     return (
-        <div className="w">
-            <div className="svc-hero">
-                <div className="sey">Our Offerings</div>
-                <h1>Services & Locations</h1>
-                <Divider style={{ marginTop: '14px' }} dark={true} />
+        <div className="full-width">
+
+            <Hero
+                eyebrow="Our Offerings"
+                title="Services & Locations"
+            />
+
+            <div className="services-grid">
+                <ServiceCard
+                    image={img1}
+                    imageLabel="Ceremony Design"
+                    title="Ceremony Design"
+                    description="Bespoke altar arrangements, floral archways, and aisle styling."
+                    actionText="Explore service"
+                />
+
+                <ServiceCard
+                    image={img2}
+                    imageLabel="Villa Balbianello"
+                    title="Villa Balbianello"
+                    description="The iconic Como peninsula villa, draped in wisteria."
+                    actionText="View location"
+                />
+
+                <ServiceCard
+                    image={img3}
+                    imageLabel="Fine Dining"
+                    title="Dining Curation"
+                    description="Michelin-starred menus and hand-selected wines."
+                    actionText="Discover more"
+                />
             </div>
 
-            <div className="svc-grid">
-                <div className="svc-card"><div className="svc-card-img sci1"><span className="svc-card-lbl">Ceremony Design</span></div><div className="svc-card-body"><h3>Ceremony Design</h3><p>Bespoke altar arrangements, floral archways, and aisle styling.</p><div className="svc-link"><div className="svc-link-l"></div>Explore service</div></div></div>
-                <div className="svc-card"><div className="svc-card-img sci2"><span className="svc-card-lbl">Villa Balbianello</span></div><div className="svc-card-body"><h3>Villa Balbianello</h3><p>The iconic Como peninsula villa, draped in wisteria.</p><div className="svc-link"><div className="svc-link-l"></div>View location</div></div></div>
-                <div className="svc-card"><div className="svc-card-img sci3"><span className="svc-card-lbl">Fine Dining</span></div><div className="svc-card-body"><h3>Dining Curation</h3><p>Michelin-starred menus and hand-selected wines.</p><div className="svc-link"><div className="svc-link-l"></div>Discover more</div></div></div>
-            </div>
-
-            <div className="svc-spot">
-                <div className="svc-spot-img">
-                    <div style={{ textAlign: 'center' }}>
-                        <h3 style={{ color: '#C8A84B', fontFamily: 'Playfair Display', opacity: 0.5 }}>Terrace at sunset</h3>
-                    </div>
-                </div>
-                <div className="svc-spot-txt">
-                    <div className="sey">Featured Venue</div>
-                    <h2>Villa Carlotta —<br /><em style={{ fontFamily: '"Playfair Display", serif' }}>the jewel of Como</em></h2>
-                    <p>Commanding views of the Alps, terraced gardens descending to the water's edge, and interiors that whisper centuries of Italian opulence.</p>
-                    <button className="hcta" style={{ marginTop: '12px' }}>Request availability</button>
+            <div className="spotlight-grid">
+                <ImageBanner
+                    image={terraceImg}
+                    caption="Terrace at sunset"
+                    containerClass="flex-center"
+                    style={{ minHeight: '200px' }}
+                />
+                <div className="spotlight-content">
+                    <div className="text-eyebrow">Featured Venue</div>
+                    <h2 className="spotlight-title">Villa Carlotta —<br /><em className="italic">the jewel of Como</em></h2>
+                    <p className="text-muted" style={{ fontSize: '12px', marginBottom: '10px' }}>Commanding views of the Alps, terraced gardens descending to the water's edge, and interiors that whisper centuries of Italian opulence.</p>
+                    <button className="btn" style={{ marginTop: '12px' }}>Request availability</button>
                 </div>
             </div>
 
-            <div className="sh" style={{ paddingBottom: '16px' }}>
-                <div className="sey">Packages</div>
-                <div className="st">Choose your experience</div>
-                <Divider style={{ marginTop: '14px' }} />
+            <div className="packages-heading">
+                <div className="text-eyebrow">Packages</div>
+                <div className="packages-title">Choose your experience</div>
+                <Divider className="flex-center mt-4" />
             </div>
 
-            <div className="pkg-row">
-                <div className="pkg">
-                    <div className="pkg-badge">Essentials</div>
-                    <h3>Classico</h3>
-                    <div className="pkg-price">€8,500<small> / event</small></div>
-                    <ul><li><div className="pkg-dot"></div>Venue liaison & booking</li><li><div className="pkg-dot"></div>Day-of coordination</li></ul>
-                </div>
-                <div className="pkg featured">
-                    <div className="pkg-badge">Most Popular</div>
-                    <h3>Lusso</h3>
-                    <div className="pkg-price">€18,000<small> / event</small></div>
-                    <ul><li><div className="pkg-dot"></div>Everything in Classico</li><li><div className="pkg-dot"></div>Full floral design</li></ul>
-                </div>
-                <div className="pkg">
-                    <div className="pkg-badge">Ultimate</div>
-                    <h3>Esclusivo</h3>
-                    <div className="pkg-price">€32,000<small>+</small></div>
-                    <ul><li><div className="pkg-dot"></div>White-glove full service</li><li><div className="pkg-dot"></div>Private villa exclusivity</li></ul>
-                </div>
+            <div className="services-grid">
+                <PackageCard
+                    label="Essentials"
+                    title="Classico"
+                    price="€8,500"
+                    priceSuffix=" / event"
+                    features={["Venue liaison & booking", "Day-of coordination"]}
+                />
+
+                <PackageCard
+                    label="Most Popular"
+                    title="Lusso"
+                    price="€18,000"
+                    priceSuffix=" / event"
+                    features={["Everything in Classico", "Full floral design"]}
+                    dark={true}
+                />
+
+                <PackageCard
+                    label="Ultimate"
+                    title="Esclusivo"
+                    price="€32,000"
+                    priceSuffix="+"
+                    features={["White-glove full service", "Private villa exclusivity"]}
+                />
             </div>
         </div>
     );

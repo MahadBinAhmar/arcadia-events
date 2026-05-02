@@ -1,0 +1,78 @@
+.package-card {
+    background: var(--color-bg-light);
+    padding: 24px 20px;
+    text-align: center;
+}
+
+.package-card-dark {
+    background: var(--color-bg-dark);
+    color: var(--color-bg-light);
+}
+
+.package-card-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    background: rgba(200, 168, 75, .12);
+    border: 1px solid rgba(200, 168, 75, .3);
+    padding: 3px 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.package-card-title {
+    font-family: var(--font-playfair);
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.package-card:not(.package-card-dark) .package-card-title {
+    color: var(--color-bg-dark);
+}
+
+.package-card-dark .package-card-title {
+    color: var(--color-cream);
+}
+
+.package-card-price {
+    font-family: var(--font-playfair);
+    font-size: 28px;
+    color: var(--color-gold);
+    margin: 8px 0 12px;
+}
+
+.package-card-price small,
+.package-card-suffix {
+    font-family: var(--font-jost);
+    font-size: 11px;
+    color: var(--color-text-light);
+}
+
+.package-card-dark .package-card-suffix {
+    color: rgba(246, 240, 228, 0.5);
+}
+
+.package-list {
+    list-style: none;
+    text-align: left;
+    margin-top: 16px;
+}
+
+.package-item {
+    font-size: 11px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--color-divider);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.package-card:not(.package-card-dark) .package-item {
+    color: var(--color-text-muted);
+}
+
+.package-card-dark .package-item {
+    color: rgba(246, 240, 228, .6);
+    border-bottom-color: rgba(200, 168, 75, .15);
+}

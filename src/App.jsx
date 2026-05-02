@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-// Components aur Pages ko import kar rahe hain
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -13,10 +12,8 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <>
-      {/* Navbar hamesha top par rahega */}
       <Navbar />
 
-      {/* Step 2: Define all your Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -25,7 +22,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
 
-      {/* Footer hamesha bottom par rahega */}
       <Footer />
     </>
   );

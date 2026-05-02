@@ -1,0 +1,21 @@
+/* Reusable Hero Component Styles */
+.page-hero {
+    background-color: var(--color-bg-dark-alt);
+    padding: 80px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.page-hero-content {
+    max-width: 800px;
+    width: 100%;
+}
+
+.page-hero-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
